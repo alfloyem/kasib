@@ -148,6 +148,29 @@
     <button id="downloadBtn">Download Image</button>
   </div>
 
+
+  <script>
+fetch('list.txt')
+  .then(response => response.text())
+  .then(data => {
+    const lines = data.split('\n');
+    lines.forEach(line => {
+      const cleanLine = line.replace(/^\s*\d+\.\s*/, '').trim();
+      if (cleanLine) {
+        const option = document.createElement('option');
+        option.value = cleanLine;
+        option.textContent = cleanLine;
+        wordSelect.appendChild(option);
+      }
+    });
+  })
+
+  </script>
+
+
+
+
+
   <script>
     const wordSelect = document.getElementById('wordSelect');
     const overlayText = document.getElementById('overlayText');
@@ -195,7 +218,7 @@
   </script>
   
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>downloadBtn.addEventListener('click', async () => {
   const container = document.getElementById('imageContainer');
   const overlay = document.getElementById('overlayText');
