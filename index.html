@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kasıb sözü</title>
-  <link rel="shortcut icon" href="image.jpeg" type="image/x-icon">
+  <link rel="shortcut icon" href="image.jpg" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -43,10 +43,8 @@
     }
 
     #mainImage {
-      max-width: 100%;
-      max-height: 100%;
-      height: auto;
-      width: auto;
+      height: 100%;
+      width: 100%;
       object-fit: contain;
     }
 
@@ -89,7 +87,7 @@
 <body>
 
   <div id="imageContainer">
-    <img id="mainImage" src="image.jpeg" alt="Image">
+    <img id="mainImage" src="image.jpg" alt="Image">
     <div id="overlayText">Abi salam</div>
   </div>
 
@@ -193,33 +191,52 @@
       }
     });
 
-    // Download image
-    downloadBtn.addEventListener('click', () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      const img = mainImage;
 
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-
-      ctx.drawImage(img, 0, 0);
-
-      ctx.font = `${canvas.width / 15}px Montserrat`;
-      ctx.fillStyle = 'white';
-      ctx.lineWidth = 4;
-      ctx.strokeStyle = 'black';
-
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.strokeText(overlayText.textContent, canvas.width / 2, canvas.height * 0.65);
-      ctx.fillText(overlayText.textContent, canvas.width / 2, canvas.height * 0.65);
-
-      const link = document.createElement('a');
-      link.download = 'image.png';
-      link.href = canvas.toDataURL();
-      link.click();
-    });
   </script>
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>downloadBtn.addEventListener('click', async () => {
+  const container = document.getElementById('imageContainer');
+  const overlay = document.getElementById('overlayText');
+  const img = document.getElementById('mainImage');
+  const body = document.body;
+
+  // Eski stilleri kaydet
+  const oldWidth = container.style.width;
+  const oldHeight = container.style.height;
+  const oldFontSize = overlay.style.fontSize;
+  const oldBorderRadius = container.style.borderRadius;
+  const oldBodyHeight = body.style.height;
+
+  // Geçici yüksek çözünürlük ve stil ayarları
+  container.style.width = img.naturalWidth + 'px';
+  container.style.height = img.naturalHeight + 'px';
+  overlay.style.fontSize = (img.naturalWidth / 15) + 'px';
+  container.style.borderRadius = '0';
+  body.style.height = 'auto'; // 100dvh kaldır
+
+  // html2canvas ile ekran görüntüsü al
+  const canvas = await html2canvas(container, { scale: 2 });
+
+  // Dosya adında Türkçe ve Azerbaycanca karakterleri koru
+  const safeName = wordSelect.value
+    .replace(/[/\\?%*:|"<>]/g, '_') // dosya adı için yasaklı karakterleri değiştir
+    .normalize('NFC'); // Unicode normalizasyonu
+
+  const link = document.createElement('a');
+  link.download = `${safeName}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+
+  // Eski responsive boyutlara ve stillere geri dön
+  container.style.width = oldWidth;
+  container.style.height = oldHeight;
+  overlay.style.fontSize = oldFontSize;
+  container.style.borderRadius = oldBorderRadius;
+  body.style.height = oldBodyHeight;
+});
+</script>
 
 </body>
 </html>
