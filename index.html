@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kasıb sözü</title>
-  <link rel="shortcut icon" href="image.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="image.webp" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,7 +14,7 @@
     }
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #111827; /* dark background */
+      background-color: #111827;
       color: white;
       display: flex;
       flex-direction: column;
@@ -27,7 +27,7 @@
     select {
       padding: 1rem 0.75rem;
       border-radius: 0.5rem;
-      background-color: #1f2937; /* gray-800 */
+      background-color: #1f2937;
       color: white;
       border: none;
     }
@@ -72,7 +72,7 @@
       flex: 1;
       padding: 1rem 0.75rem;
       border-radius: 0.75rem;
-      background-color: #1f2937; /* gray-800 */
+      background-color: #1f2937;
       color: white;
       border: none;
       cursor: pointer;
@@ -80,14 +80,14 @@
     }
 
     button:hover {
-      background-color: #374151; /* gray-700 */
+      background-color: #374151;
     }
   </style>
 </head>
 <body>
 
   <div id="imageContainer">
-    <img id="mainImage" src="image.jpg" alt="Image">
+    <img id="mainImage" src="image.webp" alt="Image">
     <div id="overlayText">Abi salam</div>
   </div>
 
@@ -156,7 +156,7 @@
     const changeBtn = document.getElementById('changeBtn');
     const downloadBtn = document.getElementById('downloadBtn');
 
-    // Load from LocalStorage
+  
     window.addEventListener('DOMContentLoaded', () => {
       const savedWord = localStorage.getItem('selectedWord');
       const savedImage = localStorage.getItem('selectedImage');
@@ -170,13 +170,13 @@
       }
     });
 
-    // Change text when option is selected
+  
     wordSelect.addEventListener('change', () => {
       overlayText.textContent = wordSelect.value;
       localStorage.setItem('selectedWord', wordSelect.value);
     });
 
-    // Change image
+  
     changeBtn.addEventListener('click', () => fileInput.click());
 
     fileInput.addEventListener('change', (e) => {
@@ -202,34 +202,34 @@
   const img = document.getElementById('mainImage');
   const body = document.body;
 
-  // Eski stilleri kaydet
+
   const oldWidth = container.style.width;
   const oldHeight = container.style.height;
   const oldFontSize = overlay.style.fontSize;
   const oldBorderRadius = container.style.borderRadius;
   const oldBodyHeight = body.style.height;
 
-  // Geçici yüksek çözünürlük ve stil ayarları
+
   container.style.width = img.naturalWidth + 'px';
   container.style.height = img.naturalHeight + 'px';
   overlay.style.fontSize = (img.naturalWidth / 15) + 'px';
   container.style.borderRadius = '0';
-  body.style.height = 'auto'; // 100dvh kaldır
+  body.style.height = 'auto'; 
 
-  // html2canvas ile ekran görüntüsü al
+
   const canvas = await html2canvas(container, { scale: 2 });
 
-  // Dosya adında Türkçe ve Azerbaycanca karakterleri koru
+
   const safeName = wordSelect.value
-    .replace(/[/\\?%*:|"<>]/g, '_') // dosya adı için yasaklı karakterleri değiştir
-    .normalize('NFC'); // Unicode normalizasyonu
+    .replace(/[/\\?%*:|"<>]/g, '_') 
+    .normalize('NFC'); 
 
   const link = document.createElement('a');
   link.download = `${safeName}.png`;
   link.href = canvas.toDataURL('image/png');
   link.click();
 
-  // Eski responsive boyutlara ve stillere geri dön
+
   container.style.width = oldWidth;
   container.style.height = oldHeight;
   overlay.style.fontSize = oldFontSize;
