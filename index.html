@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasıb sözü</title>
+  <link rel="shortcut icon" href="image.jpeg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #111827; /* dark background */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      padding: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    select {
+      padding: 1rem 0.75rem;
+      border-radius: 0.5rem;
+      background-color: #1f2937; /* gray-800 */
+      color: white;
+      border: none;
+    }
+
+    #imageContainer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      margin: auto 0;
+    }
+
+    #mainImage {
+      max-width: 100%;
+      max-height: 100%;
+      height: auto;
+      width: auto;
+      object-fit: contain;
+    }
+
+    #overlayText {
+      position: absolute;
+      bottom: 30%;
+      width: 80%;
+      font-size: clamp(.5rem, 5vw, 3rem);
+      font-weight: bold;
+      color: white;
+      -webkit-text-stroke: 2px black;
+      paint-order: stroke fill;
+      text-align: center;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    button {
+      flex: 1;
+      padding: 1rem 0.75rem;
+      border-radius: 0.75rem;
+      background-color: #1f2937; /* gray-800 */
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #374151; /* gray-700 */
+    }
+  </style>
+</head>
+<body>
+
+  <div id="imageContainer">
+    <img id="mainImage" src="image.jpeg" alt="Image">
+    <div id="overlayText">Hello</div>
+  </div>
+
+  <select id="wordSelect">
+    <option value="Dizeli socardan vur">Dizeli socardan vur</option>
+<option value="Dişimin ağrısı başıma vurub">Dişimin ağrısı başıma vurub</option>
+<option value="Toydan toya içirəm">Toydan toya içirəm</option>
+<option value="Öz özünə kontur çıxır">Öz özünə kontur çıxır</option>
+<option value="Abi salam">Abi salam</option>
+<option value="Gör nə edirsən">Gör nə edirsən</option>
+<option value="Bu ay 3 yere çağırıblar">Bu ay 3 yere çağırıblar</option>
+<option value="Utanmıram ki, ac olsam yeyerem">Utanmıram ki, ac olsam yeyerem</option>
+<option value="Elə çək stolun üstü də düşsün">Elə çək stolun üstü də düşsün</option>
+<option value="Vitamini qabığındadı">Vitamini qabığındadı</option>
+<option value="Söndür yandır">Söndür yandır</option>
+<option value="Arxasıyla danışmaq kimi olmasın">Arxasıyla danışmaq kimi olmasın</option>
+<option value="Tutar qatıq, tutmaz ayran">Tutar qatıq, tutmaz ayran</option>
+<option value="Vızıv ver">Vızıv ver</option>
+<option value="Doyunca ye">Doyunca ye</option>
+<option value="Ayfonu havayı da verseler işletmerem">Ayfonu havayı da verseler işletmerem</option>
+<option value="O vaxt bi nolaltının pulun tökdüm həkimlərə">O vaxt bi nolaltının pulun tökdüm həkimlərə</option>
+<option value="Bir aparat var radara çatmamış diyildiyir">Bir aparat var radara çatmamış diyildiyir</option>
+<option value="Getdi urusyatə özünə gün ağladı">Getdi urusyatə özünə gün ağladı</option>
+<option value="Manatdan ver götürüm">Manatdan ver götürüm</option>
+<option value="Evə çatım atacam kartına">Evə çatım atacam kartına</option>
+<option value="Yası yola verim yığacam">Yası yola verim yığacam</option>
+<option value="Çıx bax gör hamıda sönüb">Çıx bax gör hamıda sönüb</option>
+<option value="O boyda adam düşdü hamıynan görüşdü">O boyda adam düşdü hamıynan görüşdü</option>
+<option value="Pulun pul olan vaxdı">Pulun pul olan vaxdı</option>
+<option value="Görək da, biri var deyir ki həll edəcəm">Görək da, biri var deyir ki həll edəcəm</option>
+<option value="Soknan qarnını doldurma kabab gələcək">Soknan qarnını doldurma kabab gələcək</option>
+<option value="Üstüvə sağlıq">Üstüvə sağlıq</option>
+<option value="Altından tut cırılmasın">Altından tut cırılmasın</option>
+<option value="Müvəqqəti çətinlikdi">Müvəqqəti çətinlikdi</option>
+<option value="Oturduğu yerdən pul qazanır">Oturduğu yerdən pul qazanır</option>
+<option value="Mb paylaş da abi">Mb paylaş da abi</option>
+<option value="Türkün məsəli">Türkün məsəli</option>
+<option value="Əlimdə 2vur2di">Əlimdə 2vur2di</option>
+<option value="Bircə bu ayıda yola versəydik">Bircə bu ayıda yola versəydik</option>
+<option value="Havaya nəsə buraxıblar">Havaya nəsə buraxıblar</option>
+<option value="Uşaq da məni bağışlasın">Uşaq da məni bağışlasın</option>
+<option value="Üstünə 5 manat da qoyub ət alaram">Üstünə 5 manat da qoyub ət alaram</option>
+<option value="Nemes elə belə şey buraxmaz">Nemes elə belə şey buraxmaz</option>
+<option value="Söhbət puldan getmire">Söhbət puldan getmire</option>
+<option value="Başı çıxan adamla get aldatmasınlar">Başı çıxan adamla get aldatmasınlar</option>
+<option value="Əsas zəng getsin zəng gəlsin">Əsas zəng getsin zəng gəlsin</option>
+<option value="Gərək adamın ola">Gərək adamın ola</option>
+<option value="Qız kompyuterə vurdu, hamısı çıxdı">Qız kompyuterə vurdu, hamısı çıxdı</option>
+<option value="3 gündü mədəm öldürür">3 gündü mədəm öldürür</option>
+<option value="O vaxt ağlım olmadı">O vaxt ağlım olmadı</option>
+<option value="Indi üstünə bərk düşüblər">Indi üstünə bərk düşüblər</option>
+<option value="O qız zülm çəkir amma oturur">O qız zülm çəkir amma oturur</option>
+  </select>
+
+  <div class="button-group">
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    <button id="changeBtn">Change Image</button>
+    <button id="downloadBtn">Download Image</button>
+  </div>
+
+  <script>
+    const wordSelect = document.getElementById('wordSelect');
+    const overlayText = document.getElementById('overlayText');
+    const mainImage = document.getElementById('mainImage');
+    const fileInput = document.getElementById('fileInput');
+    const changeBtn = document.getElementById('changeBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // Load from LocalStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedWord = localStorage.getItem('selectedWord');
+      const savedImage = localStorage.getItem('selectedImage');
+
+      if (savedWord) {
+        wordSelect.value = savedWord;
+        overlayText.textContent = savedWord;
+      }
+      if (savedImage) {
+        mainImage.src = savedImage;
+      }
+    });
+
+    // Change text when option is selected
+    wordSelect.addEventListener('change', () => {
+      overlayText.textContent = wordSelect.value;
+      localStorage.setItem('selectedWord', wordSelect.value);
+    });
+
+    // Change image
+    changeBtn.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          mainImage.src = ev.target.result;
+          localStorage.setItem('selectedImage', ev.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Download image
+    downloadBtn.addEventListener('click', () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const img = mainImage;
+
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+
+      ctx.drawImage(img, 0, 0);
+
+      ctx.font = `${canvas.width / 15}px Montserrat`;
+      ctx.fillStyle = 'white';
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = 'black';
+
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.strokeText(overlayText.textContent, canvas.width / 2, canvas.height * 0.65);
+      ctx.fillText(overlayText.textContent, canvas.width / 2, canvas.height * 0.65);
+
+      const link = document.createElement('a');
+      link.download = 'image.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  </script>
+
+</body>
+</html>
